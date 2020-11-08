@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+    <title>Blink Effect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./myCss.css">
+    <style>
+        span{
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+
+<body class="d-flex flex-column justify-content-center align-itmes-center">
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <h1>Blink Effect</h1>
+            </div>
+        </div>
+        <div class="row p-5">
+            <div class="col-6 go-back">
+                <a href="index.html">Go Back</a>
+            </div>
+            <div class="col-6">
+                <button>Toggle Blinking</button>
+                <div class="w-100" style="height: 250px;">
+                    <div id="blink-box" class="mx-auto mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    <script src="jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var blinkBox = $('#blink-box');
+            var interval, blink=true;
+            function blinkFunc(){
+                blinkBox.fadeOut(200);
+                blinkBox.fadeIn(200);
+            }
+
+            $('button').click(function(){
+                if(blink) {
+                    blink = false;
+                    interval=setInterval(blinkFunc,400);
+                }
+                else{
+                    blink = true;
+                    clearInterval(interval);
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+
+</html>
